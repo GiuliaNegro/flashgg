@@ -5,11 +5,17 @@
 #include "flashgg/DataFormats/interface/Muon.h"
 #include "flashgg/DataFormats/interface/Photon.h"
 #include "flashgg/DataFormats/interface/Jet.h"
+#include "DataFormats/TrackReco/interface/Track.h"
+#include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 
 #include "CommonTools/UtilAlgos/interface/StringCutObjectSelector.h"
 #include "CommonTools/UtilAlgos/interface/SingleObjectSelector.h"
 
 #include <vector>
+
+
+//typedef reco::Track Track_t;
+typedef pat::PackedCandidate Track_t;
 
 
 namespace flashgg {
@@ -33,6 +39,11 @@ namespace flashgg {
     std::vector<Jet>,
         StringCutObjectSelector<Jet>
         > FLASHggJetSelector;
+
+    typedef SingleObjectSelector <        //adding track selector
+    std::vector<Track_t>,                 
+        StringCutObjectSelector<Track_t>  
+        > FLASHggTrackSelector;
 
 }
 
