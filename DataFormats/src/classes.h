@@ -34,6 +34,13 @@
 #include "flashgg/DataFormats/interface/PDFWeightObject.h"
 #include "flashgg/DataFormats/interface/ZPlusJetTag.h"
 #include "flashgg/DataFormats/interface/TagCandidate.h"
+#include "flashgg/DataFormats/interface/DiLeptonDiJetCandidate.h"
+#include "flashgg/DataFormats/interface/DiLeptonDiJetTagBase.h"
+#include "flashgg/DataFormats/interface/DiEleDiJetTag.h"
+#include "flashgg/DataFormats/interface/DiMuDiJetTag.h"
+#include "flashgg/DataFormats/interface/DiEleDiTrackTag.h"
+#include "flashgg/DataFormats/interface/DiMuDiTrackTag.h"
+
 
 #include <vector>
 #include <map>
@@ -126,22 +133,22 @@ namespace  {
         edm::Wrapper<std::vector<flashgg::Jet> >                   wrp_vec_fgg_jet;
         edm::Wrapper<std::vector<std::vector<flashgg::Jet> > > wrp_vec_vec_fgg_jet;
         std::vector<pat::Muon>                                        vec_fgg_muon;
-        flashgg::Muon						                                fgg_mu;
-        edm::Ptr<flashgg::Muon> 					                    ptr_fgg_mu;
-        edm::Wrapper<flashgg::Muon>				                        wrp_fgg_mu;
-        std::vector<flashgg::Muon>				                        vec_fgg_mu;
+        flashgg::Muon                                                       fgg_mu;
+        edm::Ptr<flashgg::Muon>                                         ptr_fgg_mu;
+        edm::Wrapper<flashgg::Muon>                                     wrp_fgg_mu;
+        std::vector<flashgg::Muon>                                      vec_fgg_mu;
         edm::Wrapper<std::vector<flashgg::Muon> >                   wrp_vec_fgg_mu;
 
         std::map<edm::Ptr<reco::Vertex>, float>                    map_ptr_vtx_flo;
         std::pair<edm::Ptr<reco::Vertex>, float>                   pai_ptr_vtx_flo;
         std::map<std::string, std::map<edm::Ptr<reco::Vertex>, float> >  map_str_ptr_vtx_flo;
         std::pair<std::string, std::map<edm::Ptr<reco::Vertex>, float> >  pai_str_ptr_vtx_flo;
-        flashgg::Electron						    fgg_ele;
-        edm::Ptr<flashgg::Electron> 					  ptr_fgg_ele;
-        edm::Wrapper<flashgg::Electron>				  wrp_fgg_ele;
-        std::vector<flashgg::Electron>				  vec_fgg_ele;
+        flashgg::Electron                           fgg_ele;
+        edm::Ptr<flashgg::Electron>                       ptr_fgg_ele;
+        edm::Wrapper<flashgg::Electron>               wrp_fgg_ele;
+        std::vector<flashgg::Electron>                vec_fgg_ele;
         edm::Wrapper<std::vector<flashgg::Electron> >               wrp_vec_fgg_ele;
-        std::vector<reco::Conversion>					  vec_rec_con;
+        std::vector<reco::Conversion>                     vec_rec_con;
 
 
         edm::Ptr<pat::PackedGenParticle>                                     ptr_pat_pak_cand;
@@ -269,6 +276,42 @@ namespace  {
         edm::Wrapper<flashgg::TagCandidate>                      wrp_tags;
         std::vector<flashgg::TagCandidate>                       vec_tags;
         edm::Wrapper<std::vector<flashgg::TagCandidate> >    wrp_vec_tags;
+
+        flashgg::DiLeptonDiJetCandidate                                       dldj;
+        edm::Wrapper<flashgg::DiLeptonDiJetCandidate>                      wrp_dldj;
+        std::vector<flashgg::DiLeptonDiJetCandidate>                       vec_dldj;
+        edm::Wrapper<std::vector<flashgg::DiLeptonDiJetCandidate> >    wrp_vec_dldj;
+        edm::Ptr<flashgg::DiLeptonDiJetCandidate>                          ptr_dldj;
+        edm::Wrapper<edm::Ptr<flashgg::DiLeptonDiJetCandidate> >       wrp_ptr_dldj;
+        std::vector<edm::Ptr<flashgg::DiLeptonDiJetCandidate> >        vec_ptr_dldj;
+        edm::Wrapper<std::vector<edm::Ptr<flashgg::DiLeptonDiJetCandidate> > >   wrp_vec_ptr_dldj;
+ 
+
+        flashgg::DiLeptonDiJetTagBase dldj_tagbase;
+        std::vector<flashgg::DiLeptonDiJetTagBase> vec_dldj_tagbase;
+        edm::Wrapper<std::vector<flashgg::DiLeptonDiJetTagBase> > wrp_vec_dldj_tagbase;
+        edm::Ptr<flashgg::DiLeptonDiJetTagBase> Ptr_dldj_tagbase;
+        edm::Wrapper<edm::Ptr<flashgg::DiLeptonDiJetTagBase> > wrp_ptr_dldj_tagbase;
+        edm::OwnVector<flashgg::DiLeptonDiJetTagBase, edm::ClonePolicy<flashgg::DiLeptonDiJetTagBase> > ownvec_dldj_tagbase;
+        edm::Wrapper<edm::OwnVector<flashgg::DiLeptonDiJetTagBase, edm::ClonePolicy<flashgg::DiLeptonDiJetTagBase> > > wrp_ownvec_dldj_tagbase;
+
+        flashgg::DiEleDiJetTag dedj;
+        std::vector<flashgg::DiEleDiJetTag> vec_dedj;
+        edm::Wrapper<std::vector<flashgg::DiEleDiJetTag> > wrp_vec_dedj;
+
+        flashgg::DiMuDiJetTag dmdj;
+        std::vector<flashgg::DiMuDiJetTag> vec_dmdj;
+        edm::Wrapper<std::vector<flashgg::DiMuDiJetTag> > wrp_vec_dmdj;
+
+        flashgg::DiEleDiTrackTag dedt;
+        std::vector<flashgg::DiEleDiTrackTag> vec_dedt;
+        edm::Wrapper<std::vector<flashgg::DiEleDiTrackTag> > wrp_vec_dedt;
+
+        flashgg::DiMuDiTrackTag dmdt;
+        std::vector<flashgg::DiMuDiTrackTag> vec_dmdt;
+        edm::Wrapper<std::vector<flashgg::DiMuDiTrackTag> > wrp_vec_dmdt;
+
+
     };
 }
 // Local Variables:
@@ -278,4 +321,3 @@ namespace  {
 // c-basic-offset:4
 // End:
 // vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
-
