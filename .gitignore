@@ -25,3 +25,7 @@ AutoDict_*
 *.log
 *.png
 *.pdf
+
+# Sublime files
+*.sublime-project
+*.sublime-workspace
