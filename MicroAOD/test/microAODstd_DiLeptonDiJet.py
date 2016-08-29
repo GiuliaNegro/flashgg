@@ -50,10 +50,16 @@ process.load("flashgg/MicroAOD/flashggMicroAODSequence_DiLeptonDiJet_cff")
 # NEEDED FOR ANYTHING PRIOR TO reMiniAOD
 #process.weightsCount.pileupInfo = "addPileupInfo"
 
-from flashgg.MicroAOD.flashggMicroAODOutputCommands_cff import microAODDefaultOutputCommand
+# from flashgg.MicroAOD.flashggMicroAODOutputCommands_cff import microAODDefaultOutputCommand
+# process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('myMicroAODOutputFile_DiLeptonDiJet.root'),
+#                                outputCommands = microAODDefaultOutputCommand
+#                                )
+
+from flashgg.MicroAOD.flashggMicroAODOutputCommands_cff import microAODnuMSMOutputCommand
 process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('myMicroAODOutputFile_DiLeptonDiJet.root'),
-                               outputCommands = microAODDefaultOutputCommand
+                               outputCommands = microAODnuMSMOutputCommand
                                )
+
 
 # All jets are now handled in MicroAODCustomize.py
 # Switch from PFCHS to PUPPI with puppi=1 argument (both if puppi=2)

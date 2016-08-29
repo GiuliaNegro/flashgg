@@ -59,3 +59,38 @@ microAODHLTOutputCommand = cms.untracked.vstring("keep *_l1extraParticles_Isolat
                                                  "keep *_caloStage2Digis_EGamma_*",
                                                  "keep *_TriggerResults_*_HLT",
                                                  )
+
+
+microAODnuMSMOutputCommand = cms.untracked.vstring("drop *",
+                                                     "keep *_flashgg*_*_*",
+                                                     "drop *_flashggVertexMap*_*_*", 
+                                                     ## this part drop all the tools used to build puppi jets
+                                                     "drop *_flashggPuppi*_*_*",
+                                                     "drop *_flashggPhotons_*_*", # Only keep the copies with random numbers added
+                                                     #
+                                                     ""
+                                                     "keep patPackedCandidates_*_*_*", # for intermediate PFCHSLeg jet constituents
+                                                     "drop *_flashggPrunedGenParticles_*_*",   
+                                                     "keep recoGenParticles_flashggPrunedGenParticles_*_*", # this line, and preceding, drop unneded association object
+                                                     "keep recoVertexs_offlineSlimmedPrimaryVertices_*_*", # leave out floatedmValueMap_offlineSlimmedPrimaryVertices__PAT
+                                                     "keep *_reducedEgamma_reducedSuperClusters_*",
+                                                     "keep *_reducedEgamma_*PhotonCores_*",
+                                                     "keep *_slimmedMETs_*_*",
+                                                     "keep *_slimmedMETsNoHF_*_*",
+                                                     "keep *_*Rho*_*_*",
+                                                     "keep *_offlineBeamSpot_*_*",
+                                                     "keep *_TriggerResults_*_*",
+                                                     "keep *_eventCount_*_*",
+                                                     "keep *_weightsCount_*_*",
+                                                     "keep *_generator_*_*",
+                                                     "keep *_slimmedGenJets_*_*",                                            
+                                                     "keep *_slimmedAddPileupInfo_*_*", # Was huge in old MiniAod - hopefully better now
+                                                     "keep *GsfElectronCore*_*_*_*", # needed by at least one Tag
+                                                     "drop *_flashggSelected*_*_*",  
+
+                                                     "drop *_flashggDiLeptonDiJet_*_*",  #ERROR if keep
+
+                             "drop floatedmValueMap_electronMVAValueMapProducer_*_*",
+                             "drop intedmValueMap_electronMVAValueMapProducer_*_*",
+                                                     "keep *_selectedPatTrigger_*_*",
+                                                     )
