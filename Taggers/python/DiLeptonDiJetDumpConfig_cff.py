@@ -4,7 +4,7 @@ from globalVariables_cff import globalVariables
 
 DiLeptonDiJetDumpConfig = cms.PSet(
     className  = cms.untracked.string("CutBasedDiLeptonDiJetDumper"),
-    src = cms.InputTag("flashggDiLeptonsDiJets"),  #"flashggDiPhotons"),
+    src = cms.InputTag("flashggDiLeptonDiJet"),  
     generatorInfo = cms.InputTag("generator"),
     processId = cms.string(""),
     maxCandPerEvent = cms.int32(1), # -1 turns off the maxCandPerEvent check
