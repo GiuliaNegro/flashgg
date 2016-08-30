@@ -40,6 +40,7 @@
 #include "flashgg/DataFormats/interface/DiMuDiJetTag.h"
 #include "flashgg/DataFormats/interface/DiEleDiTrackTag.h"
 #include "flashgg/DataFormats/interface/DiMuDiTrackTag.h"
+#include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 
 
 #include <vector>
@@ -310,6 +311,13 @@ namespace  {
         flashgg::DiMuDiTrackTag dmdt;
         std::vector<flashgg::DiMuDiTrackTag> vec_dmdt;
         edm::Wrapper<std::vector<flashgg::DiMuDiTrackTag> > wrp_vec_dmdt;
+
+
+        std::vector<pat::PackedCandidate> vec_track;
+        edm::Ptr<pat::PackedCandidate> ptr_track;
+        std::vector<edm::Ptr<pat::PackedCandidate> > vec_ptr_track;
+        edm::Wrapper<std::vector<edm::Ptr<pat::PackedCandidate> > > wrp_vec_ptr_track;
+
 
 
     };

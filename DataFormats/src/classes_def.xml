@@ -314,4 +314,11 @@
 <class name="edm::Wrapper<std::vector<flashgg::DiMuDiTrackTag> >"/>
 
 
+<class name="std::vector<pat::PackedCandidate>"/>
+<class name="edm::Ptr<pat::PackedCandidate>" />
+<class name="std::vector<edm::Ptr<pat::PackedCandidate> >"/>
+<class name="edm::Wrapper<std::vector<edm::Ptr<pat::PackedCandidate> > >"/>
+
+
+
 </lcgdict>

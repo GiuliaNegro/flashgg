@@ -88,7 +88,7 @@ microAODnuMSMOutputCommand = cms.untracked.vstring("drop *",
                                                      "keep *GsfElectronCore*_*_*_*", # needed by at least one Tag
                                                      "drop *_flashggSelected*_*_*",  
 
-                                                     "drop *_flashggDiLeptonDiJet_*_*",  #ERROR if keep
+                                                     "keep *_flashggDiLeptonDiJet_*_*", 
 
                              "drop floatedmValueMap_electronMVAValueMapProducer_*_*",
                              "drop intedmValueMap_electronMVAValueMapProducer_*_*",
