@@ -66,7 +66,8 @@ namespace flashgg {
 
 		~DiLeptonDiJetCandidate();
 
-		enum CandidateType_t { kEEJJ, kMMJJ, kEETT, kMMTT};
+		enum CandidateType_t { kEEJJ, kMMJJ, kEETT, kMMTT };
+		const CandidateType_t getType() const { return type_; }
 
 		const Vertex_ptr vtx() const { return vertex_; }
         void setVtx( Vertex_ptr val ) { vertex_ = val; }
@@ -76,6 +77,12 @@ namespace flashgg {
 
 		const Muon_t *muon1() const; 
 		const Muon_t *muon2() const;
+
+		const Electron_t *leadingEle() const; 
+		const Electron_t *subLeadingEle() const; 
+
+		const Muon_t *leadingMuon() const; 
+		const Muon_t *subLeadingMuon() const;
 
 		const Jet_t *leadingJet() const; 
 		const Jet_t *subLeadingJet() const; 

@@ -192,6 +192,52 @@ const Muon_t *DiLeptonDiJetCandidate::muon2() const
 }
 
 
+const Electron_t *DiLeptonDiJetCandidate::leadingEle() const
+{
+	if (type_ == kEEJJ || type_ == kEETT) {
+		if( daughter( 0 )->pt() > daughter( 1 )->pt() ) {
+			return dynamic_cast<const Electron_t *>( daughter( 0 ) );
+		} else {
+			return dynamic_cast<const Electron_t *>( daughter( 1 ) );
+		}
+	} else return nullptr;
+}
+
+const Electron_t *DiLeptonDiJetCandidate::subLeadingEle() const
+{
+	if (type_ == kEEJJ || type_ == kEETT) {
+		if( daughter( 0 )->pt() > daughter( 1 )->pt() ) {
+			return dynamic_cast<const Electron_t *>( daughter( 1 ) );
+		} else {
+			return dynamic_cast<const Electron_t *>( daughter( 0 ) );
+		}
+	} else return nullptr;
+}
+
+
+const Muon_t *DiLeptonDiJetCandidate::leadingMuon() const
+{
+	if (type_ == kMMJJ || type_ == kMMTT) {
+		if( daughter( 0 )->pt() > daughter( 1 )->pt() ) {
+			return dynamic_cast<const Muon_t *>( daughter( 0 ) );
+		} else {
+			return dynamic_cast<const Muon_t *>( daughter( 1 ) );
+		}
+	} else return nullptr;
+}
+
+const Muon_t *DiLeptonDiJetCandidate::subLeadingMuon() const
+{
+	if (type_ == kMMJJ || type_ == kMMTT) {
+		if( daughter( 0 )->pt() > daughter( 1 )->pt() ) {
+			return dynamic_cast<const Muon_t *>( daughter( 1 ) );
+		} else {
+			return dynamic_cast<const Muon_t *>( daughter( 0 ) );
+		}
+	} else return nullptr;
+}
+
+
 const Jet_t *DiLeptonDiJetCandidate::leadingJet() const
 {
 	if (type_ == kEEJJ || type_ == kMMJJ) {
