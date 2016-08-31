@@ -6,7 +6,6 @@
 #include "flashgg/DataFormats/interface/Electron.h"
 
 #include "DataFormats/PatCandidates/interface/Electron.h"  
-#include "DataFormats/TrackReco/interface/Track.h"
 #include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 
 
@@ -17,8 +16,6 @@ typedef edm::Ptr<flashgg::Electron> Electron_ptr;
 // typedef pat::Electron Electron_t;  
 // typedef edm::Ptr<pat::Electron> Electron_ptr; 
 
-//typedef reco::Track Track_t;
-//typedef edm::Ptr<reco::Track> Track_ptr;
 typedef pat::PackedCandidate Track_t;
 typedef edm::Ptr<pat::PackedCandidate> Track_ptr;
 

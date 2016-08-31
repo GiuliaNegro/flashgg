@@ -6,7 +6,6 @@
 #include "flashgg/DataFormats/interface/Muon.h"
 
 #include "DataFormats/PatCandidates/interface/Muon.h" 
-#include "DataFormats/TrackReco/interface/Track.h"
 #include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 
 
@@ -17,8 +16,6 @@ typedef edm::Ptr<flashgg::Muon> Muon_ptr;
 // typedef pat::Muon Muon_t;
 // typedef edm::Ptr<pat::Muon> Muon_ptr;
 
-//typedef reco::Track Track_t;
-//typedef edm::Ptr<reco::Track> Track_ptr;
 typedef pat::PackedCandidate Track_t;
 typedef edm::Ptr<pat::PackedCandidate> Track_ptr;
 

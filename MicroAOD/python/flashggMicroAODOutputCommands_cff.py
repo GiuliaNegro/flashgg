@@ -86,11 +86,10 @@ microAODnuMSMOutputCommand = cms.untracked.vstring("drop *",
                                                      "keep *_slimmedGenJets_*_*",                                            
                                                      "keep *_slimmedAddPileupInfo_*_*", # Was huge in old MiniAod - hopefully better now
                                                      "keep *GsfElectronCore*_*_*_*", # needed by at least one Tag
-                                                     "drop *_flashggSelected*_*_*",  
-
+                                                     "keep *_flashggSelected*_*_*",  
                                                      "keep *_flashggDiLeptonDiJet_*_*", 
 
-                             "drop floatedmValueMap_electronMVAValueMapProducer_*_*",
-                             "drop intedmValueMap_electronMVAValueMapProducer_*_*",
+                                                     "drop floatedmValueMap_electronMVAValueMapProducer_*_*",
+                                                     "drop intedmValueMap_electronMVAValueMapProducer_*_*",
                                                      "keep *_selectedPatTrigger_*_*",
                                                      )

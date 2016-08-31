@@ -23,13 +23,11 @@ typedef edm::Ptr<flashgg::Muon> Muon_ptr;
 // typedef pat::Muon Muon_t;
 // typedef edm::Ptr<pat::Muon> Muon_ptr;
 
-// typedef flashgg::Jet Jet_t;
-// typedef edm::Ptr<flashgg::Jet> Jet_ptr;
-typedef pat::Jet Jet_t;
-typedef edm::Ptr<pat::Jet> Jet_ptr;
+typedef flashgg::Jet Jet_t;
+typedef edm::Ptr<flashgg::Jet> Jet_ptr;
+// typedef pat::Jet Jet_t;
+// typedef edm::Ptr<pat::Jet> Jet_ptr;
 
-//typedef reco::Track Track_t;
-//typedef edm::Ptr<reco::Track> Track_ptr;
 typedef pat::PackedCandidate Track_t;
 typedef edm::Ptr<pat::PackedCandidate> Track_ptr;
 
