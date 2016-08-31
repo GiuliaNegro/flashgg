@@ -17,10 +17,10 @@ typedef edm::Ptr<flashgg::Electron> Electron_ptr;
 // typedef pat::Electron Electron_t;  
 // typedef edm::Ptr<pat::Electron> Electron_ptr; 
 
-typedef flashgg::Jet Jet_t;
-typedef edm::Ptr<flashgg::Jet> Jet_ptr;
-// typedef pat::Jet Jet_t;
-// typedef edm::Ptr<pat::Jet> Jet_ptr;
+// typedef flashgg::Jet Jet_t;
+// typedef edm::Ptr<flashgg::Jet> Jet_ptr;
+typedef pat::Jet Jet_t;
+typedef edm::Ptr<pat::Jet> Jet_ptr;
 
 
 

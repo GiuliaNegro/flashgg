@@ -3,7 +3,7 @@ import FWCore.ParameterSet.Config as cms
 flashggDiLeptonDiJet = cms.EDProducer('FlashggDiLeptonDiJetProducer',     
 									ElectronTag=cms.InputTag('flashggElectrons'),  #'slimmedElectrons'), 
 									MuonTag=cms.InputTag('flashggMuons'),          #'slimmedMuons'),
-									JetTag=cms.InputTag('flashggFinalJets'),       #'slimmedJets'),   
+									JetTag=cms.InputTag('slimmedJets'),            #'flashggJets'),
 									TrackTag=cms.InputTag('packedPFCandidates'),
 									VertexTag=cms.InputTag('offlineSlimmedPrimaryVertices'), 
 									##Parameters  
@@ -19,7 +19,7 @@ flashggDiLeptonDiJet = cms.EDProducer('FlashggDiLeptonDiJetProducer',
 # flashggDiLeptonDiJet = cms.EDProducer('FlashggDiLeptonDiJetProducer',   #for Hgg microAOD
 # 									ElectronTag=cms.InputTag('flashggSelectedElectrons'),  
 # 									MuonTag=cms.InputTag('flashggSelectedMuons'),        
-# 									JetTag=cms.InputTag('flashggFinalJets'), #'flashggJets'),
+# 									JetTag=cms.InputTag('flashggFinalJets'), 
 # 									TrackTag=cms.InputTag('packedPFCandidates'),
 # 									VertexTag=cms.InputTag('offlineSlimmedPrimaryVertices'), 
 # 									##Parameters  
