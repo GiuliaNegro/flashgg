@@ -32,7 +32,7 @@
 #include "flashgg/MicroAOD/interface/CutAndClassBasedClassifier.h"
 #include "flashgg/Taggers/interface/GlobalVariablesDumper.h"
 #include "flashgg/DataFormats/interface/PDFWeightObject.h"
-
+#include "flashgg/DataFormats/interface/WeightedObject.h"
 #include "FWCore/Utilities/interface/Exception.h"
 
 /**

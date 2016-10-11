@@ -28,6 +28,7 @@
 
 namespace flashgg {
 
+    using namespace std;
 
     template<class ObjectT> class FunctorTrait
     {
