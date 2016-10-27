@@ -143,12 +143,12 @@ class MicroAODCustomize(object):
         from flashgg.MicroAOD.flashggMet_RunCorrectionAndUncertainties_cff import runMETs
         runMETs(process,True) #isMC
         # Default should be the right name for all signals
-        process.load("flashgg/MicroAOD/flashggPDFWeightObject_cfi")
-        process.p *= process.flashggPDFWeightObject
+        # process.load("flashgg/MicroAOD/flashggPDFWeightObject_cfi")  #doesn't work for WR signal MC 
+        # process.p *= process.flashggPDFWeightObject
 
     # background specific customization
     def customizeBackground(self,process):
-        from flashgg.MicroAOD.flashggMet_RunCorrectionAndUncertainties_cff.py import runMETs
+        from flashgg.MicroAOD.flashggMet_RunCorrectionAndUncertainties_cff import runMETs
         runMETs(process,True) #isMC
         if "sherpa" in self.datasetName:
             process.flashggGenPhotonsExtra.defaultType = 1
