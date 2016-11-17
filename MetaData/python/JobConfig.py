@@ -268,8 +268,12 @@ class JobConfig(object):
                                         print "Not all the same... so we return to the old behavior and take an exact match, otherwise leave empty..."
                                         matches = filter(lambda x: x == dsetname, matches)
                                 if len(matches) != 1:
+                                  if "13TeV-2016" in dsetname:
+                                    matches = ["80X_mcRun2_asymptotic_v14"]                                   
+                                  else:
                                     raise Exception("Could not determine sample pu distribution for reweighting. Possible matches are [%s]. Selected [%s]\n dataset: %s" % 
                                                 ( ",".join(self.pu_distribs.keys()), ",".join(matches), dsetname ) )
+                                print matches
                                 samplepu = self.pu_distribs[matches[0]]
                             puObj.puReWeight = True
                             puObj.puBins = cms.vdouble( map(float, samplepu.probFunctionVariable) )
