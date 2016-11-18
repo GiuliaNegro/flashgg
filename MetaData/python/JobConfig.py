@@ -365,7 +365,8 @@ class JobConfig(object):
             self.readProcessIdMap(self.options.processIdMap)
         
         if self.useAAA:
-            self.filePrepend = "root://xrootd-cms.infn.it/"
+            # self.filePrepend = "root://xrootd-cms.infn.it/"
+            self.filePrepend = "root://node12.datagrid.cea.fr/"
         elif self.useEOS:
             if self.atIC:
                 self.filePrepend = "root://eoscms.cern.ch//eos/cms"
