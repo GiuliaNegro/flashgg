@@ -130,8 +130,16 @@ class JobConfig(object):
             from SimGeneral.MixingModule.mix_2016_25ns_SpringMC_PUScenarioV1_PoissonOOTPU_cfi import mix as mix_2016_80_25ns
             self.pu_distribs["80X_mcRun2_asymptotic_2016"] = mix_2016_80_25ns.input.nbPileupEvents
             self.pu_distribs["PUSpring16"] = mix_2016_80_25ns.input.nbPileupEvents
+            self.pu_distribs["80X_mcRun2_asymptotic_v14"] = mix_2016_80_25ns.input.nbPileupEvents
         except Exception:
             print "Failed to load 80X mixing, this is expected in 7X!"
+
+        # try:
+        #     from SimGeneral.MixingModule.mix_Flat_10_50_25ns_cfi import mix as mix_2016_80_25ns_WRsignal
+        #     self.pu_distribs["80X_mcRun2_asymptotic_v14"] = mix_2016_80_25ns_WRsignal.input.nbPileupEvents
+        # except Exception:
+        #     print "Failed to load WR MC signal mixing"
+
             
     def __getattr__(self,name):
         ## did not manage to inherit from VarParsing, because of some issues in __init__
@@ -274,7 +282,7 @@ class JobConfig(object):
                                     raise Exception("Could not determine sample pu distribution for reweighting. Possible matches are [%s]. Selected [%s]\n dataset: %s" % 
                                                 ( ",".join(self.pu_distribs.keys()), ",".join(matches), dsetname ) )
                                 print matches
-                                samplepu = self.pu_distribs[matches[0]]
+                                samplepu = self.pu_distribs[matches[0]]                                
                             puObj.puReWeight = True
                             puObj.puBins = cms.vdouble( map(float, samplepu.probFunctionVariable) )
                             puObj.mcPu   = samplepu.probValue
