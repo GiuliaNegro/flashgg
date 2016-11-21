@@ -1,14 +1,14 @@
 {
-	"gnegro-WR-800_ToLNu-400_ToEEJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"     : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-1600_ToLNu-800_ToEEJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"    : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-2400_ToLNu-1200_ToEEJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"   : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-3200_ToLNu-1600_ToEEJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"   : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-4000_ToLNu-2000_ToEEJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"   : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-6000_ToLNu-3000_ToEEJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"   : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-800_ToLNu-400_ToMuMuJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"   : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-1600_ToLNu-800_ToMuMuJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a"  : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-2400_ToLNu-1200_ToMuMuJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a" : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-3200_ToLNu-1600_ToMuMuJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a" : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-4000_ToLNu-2000_ToMuMuJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a" : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-6000_ToLNu-3000_ToMuMuJJ_miniAOD_13TeV-2016-b59cb78551aff289588aa5c69db4a3a" : ["80X_mcRun2_asymptotic_v14"]
+	"gnegro-WR-800_ToLNu-400_ToEEJJ_miniAOD_13TeV-2016"     : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-1600_ToLNu-800_ToEEJJ_miniAOD_13TeV-2016"    : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-2400_ToLNu-1200_ToEEJJ_miniAOD_13TeV-2016"   : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-3200_ToLNu-1600_ToEEJJ_miniAOD_13TeV-2016"   : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-4000_ToLNu-2000_ToEEJJ_miniAOD_13TeV-2016"   : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-6000_ToLNu-3000_ToEEJJ_miniAOD_13TeV-2016"   : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-800_ToLNu-400_ToMuMuJJ_miniAOD_13TeV-2016"   : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-1600_ToLNu-800_ToMuMuJJ_miniAOD_13TeV-2016"  : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-2400_ToLNu-1200_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-3200_ToLNu-1600_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-4000_ToLNu-2000_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
+	"gnegro-WR-6000_ToLNu-3000_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"]
 }
