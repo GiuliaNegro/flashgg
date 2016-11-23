@@ -115,8 +115,8 @@ class MicroAODCustomize(object):
                 self.customizeVBF(process)
             elif "thq" in customize.datasetName.lower() or "thw" in customize.datasetName.lower():
                 raise Exception,"TH samples should not currently be classified as signal - see MicroAODCustomize.py"
-            else:
-                raise Exception,"processType=sig but datasetName does not contain recognized production mechanism - see MicroAODCustomize.py"
+            # else:  ##to allow considering also WR signal MC
+            #     raise Exception,"processType=sig but datasetName does not contain recognized production mechanism - see MicroAODCustomize.py"
         if self.processType == "background":
             self.customizeBackground(process)
             if "thq" in customize.datasetName.lower() or "thw" in customize.datasetName.lower():
@@ -159,10 +159,10 @@ class MicroAODCustomize(object):
         from flashgg.MicroAOD.METcorr_multPhiCorr_80X_sumPt_cfi import multPhiCorr_MC_DY_80X
         setMetCorr(process,multPhiCorr_MC_DY_80X)
         process.load("SimGeneral.HepPDTESSource.pythiapdt_cfi")
-        process.rivetProducerHTXS = cms.EDProducer('HTXSRivetProducer',
-                                                   HepMCCollection = cms.InputTag('myGenerator','unsmeared'),
-                                                   ProductionMode = cms.string('PRODUCTIONMODENOTSET'),
-                                                   )
+        # process.rivetProducerHTXS = cms.EDProducer('HTXSRivetProducer',           ## doesn't work for WR signal MC 
+        #                                            HepMCCollection = cms.InputTag('myGenerator','unsmeared'),
+        #                                            ProductionMode = cms.string('PRODUCTIONMODENOTSET'),
+        #                                            )
         process.mergedGenParticles = cms.EDProducer("MergedGenParticleProducer",
                                                     inputPruned = cms.InputTag("prunedGenParticles"),
                                                     inputPacked = cms.InputTag("packedGenParticles"),
@@ -173,9 +173,9 @@ class MicroAODCustomize(object):
                                              )
         process.p *= process.mergedGenParticles
         process.p *= process.myGenerator
-        process.p *= process.rivetProducerHTXS
-        process.out.outputCommands.append("keep *_rivetProducerHTXS_*_*")
-        self.customizePDFs(process)
+        # process.p *= process.rivetProducerHTXS     ## doesn't work for WR signal MC 
+        # process.out.outputCommands.append("keep *_rivetProducerHTXS_*_*")    
+        # self.customizePDFs(process)
 
     def customizePDFs(self,process):     
         process.load("flashgg/MicroAOD/flashggPDFWeightObject_cfi")
