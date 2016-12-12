@@ -310,6 +310,8 @@ if options.createCrabConfig:
             jobname = jobname.replace("_GEN_SIM_13TeV","_13TeV")
         if len(jobname) > 97:
             jobname = jobname.replace("-b59cb78551aff289588aa5c69db4a3a1","")
+        if len(jobname) > 97:
+            jobname = jobname.replace("TuneCUETP8M1_13TeV-p8_RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2","13TeV-2015")
         ## 
         if len(jobname) > 97:
             print orig_jobname
