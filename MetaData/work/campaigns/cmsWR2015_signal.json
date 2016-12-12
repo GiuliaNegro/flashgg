@@ -1,0 +1,16 @@
+{
+		"data" :   [
+				   ],
+
+		"sig"  :   [
+					"/WRToNuEToEEJJ_MW-2400_MNu-1200_TuneCUETP8M1_13TeV-pythia8/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM",
+					"/WRToNuEToEEJJ_MW-3200_MNu-1600_TuneCUETP8M1_13TeV-pythia8/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM",
+					"/WRToNuEToEEJJ_MW-4000_MNu-2000_TuneCUETP8M1_13TeV-pythia8/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM",
+					"/WRToNuMuToMuMuJJ_MW-2400_MNu-1200_TuneCUETP8M1_13TeV-pythia8/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM",
+					"/WRToNuMuToMuMuJJ_MW-3200_MNu-1600_TuneCUETP8M1_13TeV-pythia8/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM",
+					"/WRToNuMuToMuMuJJ_MW-4000_MNu-2000_TuneCUETP8M1_13TeV-pythia8/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM"
+				   ],
+
+		"bkg"  :   [
+				   ]
+}
