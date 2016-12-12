@@ -10,5 +10,6 @@
 	"gnegro-WR-2400_ToLNu-1200_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
 	"gnegro-WR-3200_ToLNu-1600_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
 	"gnegro-WR-4000_ToLNu-2000_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
-	"gnegro-WR-6000_ToLNu-3000_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"]
+	"gnegro-WR-6000_ToLNu-3000_ToMuMuJJ_miniAOD_13TeV-2016" : ["80X_mcRun2_asymptotic_v14"],
+	"RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2"       : ["74X_mcRun2_asymptotic_v2"]
 }
