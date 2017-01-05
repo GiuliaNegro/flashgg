@@ -1,0 +1,22 @@
+{
+		"data" :   [
+				   ],
+
+		"sig"  :   [
+					"/WRToEEJJ_MW-800_MNu-400_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToEEJJ_MW-1600_MNu-800_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToEEJJ_MW-2400_MNu-1200_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToEEJJ_MW-3200_MNu-1600_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToEEJJ_MW-4000_MNu-2000_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToEEJJ_MW-6000_MNu-3000_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToMuMuJJ_MW-800_MNu-400_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToMuMuJJ_MW-1600_MNu-800_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToMuMuJJ_MW-2400_MNu-1200_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToMuMuJJ_MW-3200_MNu-1600_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToMuMuJJ_MW-4000_MNu-2000_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER",
+					"/WRToMuMuJJ_MW-6000_MNu-3000_TuneCUETP8M1_13TeV-pythia8/gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55b/USER"
+				   ],
+
+		"bkg"  :   [
+				   ]
+}
