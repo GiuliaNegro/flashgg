@@ -1,4 +1,5 @@
 {
+	"RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6"                              : ["80X_mcRun2_asymptotic_2016_TrancheIV_v6"],
 	"gnegro-RunIIWinter16_80X_mcRun2_asymptotic_2016_miniAODv2_v1_MINIAODSIM-9232bfa9d7b25477dcde67f5060ed55" : ["80X_mcRun2_asymptotic_2016_miniAODv2_v1"],
 	"gnegro-WR-800_ToLNu-400_ToEEJJ_miniAOD_13TeV-2016"     : ["80X_mcRun2_asymptotic_v14"],
 	"gnegro-WR-1600_ToLNu-800_ToEEJJ_miniAOD_13TeV-2016"    : ["80X_mcRun2_asymptotic_v14"],
