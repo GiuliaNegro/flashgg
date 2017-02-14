@@ -239,8 +239,8 @@ if options.createCrabConfig:
     Popen(['cp', '-p', options.parameterSet, './'])
     rel = os.environ.get('CMSSW_BASE')
     print rel
-    Popen(['cp', '-p', rel+'/src/flashgg/MicroAOD/data/Spring16_25nsV6_DATA.db', './'])
-    Popen(['cp', '-p', rel+'/src/flashgg/MicroAOD/data/Spring16_25nsV6_MC.db', './'])
+    Popen(['cp', '-p', rel+'/src/flashgg/Systematics/data/JEC/Summer16_23Sep2016V4_MC.db', './'])
+    Popen(['cp', '-p', rel+'/src/flashgg/Systematics/data/JEC/Summer16_23Sep2016AllV4_DATA.db', './'])
     Popen(['cp', '-p', rel+'/src/flashgg/MicroAOD/data/QGL_80X.db', './'])
     print ("Storing options into config.json")
     cfg = open("config.json","w+")
@@ -318,9 +318,13 @@ if options.createCrabConfig:
             jobname = jobname.replace("RunIISummer16MiniAODv2-PUMoriond17_80X_asym16_TrancheIV_v6-v1","official-PUMoriond17")
         ## 
         if len(jobname) > 97:
+            jobname = jobname.replace("RunIISummer16MiniAODv2-PUMoriond17","Summer16")
+        if len(jobname) > 97:
+            jobname = jobname.replace("TrancheIV","T4")
+        if len(jobname) > 97:
             print orig_jobname
             print "-->", len(jobname), jobname
-            raise Exception
+            raise Exception,"jobname remains too long, additional hacks needed in prepareCrabJobs.py"
         #if len(jobname) > 97:
         #    print "jobname length: %d " % len(jobname)
         #    jobname = jobname[:97]

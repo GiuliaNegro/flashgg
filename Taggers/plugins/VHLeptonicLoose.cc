@@ -57,6 +57,9 @@ namespace flashgg {
         EDGetTokenT<View<flashgg::Met> > METToken_;
         EDGetTokenT<View<reco::Vertex> > vertexToken_;
         EDGetTokenT<View<reco::GenParticle> > genParticleToken_;
+        EDGetTokenT<int> stage0catToken_, stage1catToken_, njetsToken_;
+        EDGetTokenT<float> pTHToken_,pTVToken_;
+        EDGetTokenT<double> rhoTag_;
         string systLabel_;
         edm::EDGetTokenT<edm::TriggerResults> triggerRECO_;
         edm::EDGetTokenT<edm::TriggerResults> triggerPAT_;
@@ -102,7 +105,6 @@ namespace flashgg {
         vector<double> electronEtaThresholds_;
         bool useElectronMVARecipe_;
         bool useElectronLooseID_;
-        
     };
 
     VHLeptonicLooseTagProducer::VHLeptonicLooseTagProducer( const ParameterSet &iConfig ) :
@@ -114,6 +116,7 @@ namespace flashgg {
         METToken_( consumes<View<flashgg::Met> >( iConfig.getParameter<InputTag> ( "METTag" ) ) ),
         vertexToken_( consumes<View<reco::Vertex> >( iConfig.getParameter<InputTag> ( "VertexTag" ) ) ),
         genParticleToken_( consumes<View<reco::GenParticle> >( iConfig.getParameter<InputTag> ( "GenParticleTag" ) ) ),
+        rhoTag_( consumes<double>( iConfig.getParameter<InputTag>( "rhoTag" ) ) ),
         systLabel_( iConfig.getParameter<string> ( "SystLabel" ) ),
         triggerRECO_( consumes<edm::TriggerResults>(iConfig.getParameter<InputTag>("RECOfilters") ) ),
         triggerPAT_( consumes<edm::TriggerResults>(iConfig.getParameter<InputTag>("PATfilters") ) ),
@@ -153,6 +156,13 @@ namespace flashgg {
         electronEtaThresholds_ = iConfig.getParameter<vector<double > >( "electronEtaThresholds");
         useElectronMVARecipe_=iConfig.getParameter<bool>("useElectronMVARecipe");
         useElectronLooseID_=iConfig.getParameter<bool>("useElectronLooseID");
+
+        ParameterSet HTXSps = iConfig.getParameterSet( "HTXSTags" );
+        stage0catToken_ = consumes<int>( HTXSps.getParameter<InputTag>("stage0cat") );
+        stage1catToken_ = consumes<int>( HTXSps.getParameter<InputTag>("stage1cat") );
+        njetsToken_ = consumes<int>( HTXSps.getParameter<InputTag>("njets") );
+        pTHToken_ = consumes<float>( HTXSps.getParameter<InputTag>("pTH") );
+        pTVToken_ = consumes<float>( HTXSps.getParameter<InputTag>("pTV") );
         
         for (unsigned i = 0 ; i < inputTagJets_.size() ; i++) {
             auto token = consumes<View<flashgg::Jet> >(inputTagJets_[i]);
@@ -164,6 +174,13 @@ namespace flashgg {
 
     void VHLeptonicLooseTagProducer::produce( Event &evt, const EventSetup & )
     {
+        Handle<int> stage0cat, stage1cat, njets;
+        Handle<float> pTH, pTV;
+        evt.getByToken(stage0catToken_, stage0cat);
+        evt.getByToken(stage1catToken_,stage1cat);
+        evt.getByToken(njetsToken_,njets);
+        evt.getByToken(pTHToken_,pTH);
+        evt.getByToken(pTVToken_,pTV);
 
         JetCollectionVector Jets( inputTagJets_.size() );
         for( size_t j = 0; j < inputTagJets_.size(); ++j ) {
@@ -178,6 +195,10 @@ namespace flashgg {
 
         Handle<View<flashgg::Electron> > theElectrons;
         evt.getByToken( electronToken_, theElectrons );
+
+        edm::Handle<double>  rho;
+        evt.getByToken(rhoTag_,rho);
+        double rho_    = *rho;
 
         Handle<View<flashgg::DiPhotonMVAResult> > mvaResults;
         evt.getByToken( mvaResultToken_, mvaResults );
@@ -222,6 +243,22 @@ namespace flashgg {
                                 }
                         }
             }
+
+        std::vector<std::string> flashggFlagList {"flag_BadChargedCandidateFilter","flag_BadPFMuonFilter","flag_globalTightHalo2016Filter"};
+        const edm::TriggerNames &flashggtriggerNames = evt.triggerNames( *triggerFLASHggMicroAOD );
+        for( unsigned int i = 0; i < flashggtriggerNames.triggerNames().size(); i++ )
+            {
+                if(!triggerFLASHggMicroAOD->accept(i))
+                    for(size_t j=0;j<flagList.size();j++)
+                        {
+                            if(flagList[j]==flashggtriggerNames.triggerName(i))
+                                {
+                                    passMETfilters=0;
+                                    break;
+                                }
+                        }
+            }
+
 
         
         if( ! evt.isRealData() )
@@ -340,7 +377,8 @@ namespace flashgg {
             
             tagElectrons = selectStdElectrons( theElectrons->ptrs(), dipho, vertices->ptrs(), leptonPtThreshold_,  electronEtaThresholds_,
                                                useElectronMVARecipe_,useElectronLooseID_,
-                                               deltaRPhoElectronThreshold_,DeltaRTrkElec_,deltaMassElectronZThreshold_);
+                                               deltaRPhoElectronThreshold_,DeltaRTrkElec_,deltaMassElectronZThreshold_,
+                                               rho_, evt.isRealData() );
             
 
         
@@ -405,6 +443,15 @@ namespace flashgg {
                 if( ! evt.isRealData() ) {
                     VHTagTruth truth_obj;
                     truth_obj.setGenPV( higgsVtx );
+                    if ( stage0cat.isValid() ) {
+                        truth_obj.setHTXSInfo( *( stage0cat.product() ),
+                                               *( stage1cat.product() ),
+                                               *( njets.product() ),
+                                               *( pTH.product() ),
+                                               *( pTV.product() ) );
+                    } else {
+                        truth_obj.setHTXSInfo( 0, 0, 0, 0., 0. );
+                    }
                     truth_obj.setAssociatedZ( associatedZ );
                     truth_obj.setAssociatedW( associatedW );
                     truth_obj.setVhasDaughters( VhasDaughters );

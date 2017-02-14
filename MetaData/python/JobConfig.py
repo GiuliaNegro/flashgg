@@ -57,11 +57,6 @@ class JobConfig(object):
                        VarParsing.VarParsing.multiplicity.singleton, # singleton or list
                        VarParsing.VarParsing.varType.bool,          # string, int, or float
                        "useEOS")
-        self.options.register ('atIC',
-                       False,
-                       VarParsing.VarParsing.multiplicity.singleton, # singleton or list
-                       VarParsing.VarParsing.varType.bool,          # string, int, or float 
-                       "atIC")
         self.options.register ('targetLumi',
                        1.e+3, # default value
                        VarParsing.VarParsing.multiplicity.singleton, # singleton or list
@@ -128,19 +123,18 @@ class JobConfig(object):
             
         try:
             from SimGeneral.MixingModule.mix_2016_25ns_SpringMC_PUScenarioV1_PoissonOOTPU_cfi import mix as mix_2016_80_25ns
-            self.pu_distribs["80X_mcRun2_asymptotic_2016"] = mix_2016_80_25ns.input.nbPileupEvents
             self.pu_distribs["PUSpring16"] = mix_2016_80_25ns.input.nbPileupEvents
             self.pu_distribs["80X_mcRun2_asymptotic_v14"] = mix_2016_80_25ns.input.nbPileupEvents
         except Exception:
             print "Failed to load 80X mixing, this is expected in 7X!"
 
-        # try:
-        #     from SimGeneral.MixingModule.mix_Flat_10_50_25ns_cfi import mix as mix_2016_80_25ns_WRsignal
-        #     self.pu_distribs["80X_mcRun2_asymptotic_v14"] = mix_2016_80_25ns_WRsignal.input.nbPileupEvents
-        # except Exception:
-        #     print "Failed to load WR MC signal mixing"
+        try:
+            from SimGeneral.MixingModule.mix_2016_25ns_Moriond17MC_PoissonOOTPU_cfi import mix as mix_Moriond17
+            self.pu_distribs["Summer16"] = mix_Moriond17.input.nbPileupEvents
+            self.pu_distribs["PUMoriond17"] = mix_Moriond17.input.nbPileupEvents
+        except Exception:
+            print "Failed to load Moriond17 mixing, this is expected in earlier releases"
 
-            
     def __getattr__(self,name):
         ## did not manage to inherit from VarParsing, because of some issues in __init__
         ## this allows to use VarParsing methods on JobConfig
@@ -376,10 +370,7 @@ class JobConfig(object):
             # self.filePrepend = "root://xrootd-cms.infn.it/"
             self.filePrepend = "root://node12.datagrid.cea.fr/"
         elif self.useEOS:
-            if self.atIC:
-                self.filePrepend = "root://eoscms.cern.ch//eos/cms"
-            else:    
-                self.filePrepend = "root://eoscms//eos/cms"
+            self.filePrepend = "root://eoscms.cern.ch//eos/cms"
         
         self.samplesMan = None
         dataset = None
