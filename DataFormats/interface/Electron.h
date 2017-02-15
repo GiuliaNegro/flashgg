@@ -47,7 +47,11 @@ namespace flashgg {
 
         Electron *clone() const { return ( new Electron( *this ) ); }
 
+        bool hasEnergyAtStep( std::string key ) const;
+        void updateEnergy( std::string key, float val );
+
     private:
+        void setEnergyAtStep( std::string key, float val ); // updateEnergy should be used from outside the class to access this
         float nontrigmva_;
         float PfRhoAreaCorrectedIso_;
         bool hasMatchedConversion_;
