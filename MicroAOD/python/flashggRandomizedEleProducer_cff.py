@@ -7,7 +7,7 @@ import FWCore.ParameterSet.Config as cms
 #         )
 
 flashggRandomizedEle = cms.EDProducer("FlashggRandomizedEleProducer",
-                                    src = cms.InputTag("flashggElectrons"),  
+                                    src = cms.InputTag("flashggSelectedElectrons"),  
                                     # labels of various gaussian random numbers with mean=0, sigma=1
                                     # to be associated with the photon object
                                     labels = cms.vstring("smearE")
