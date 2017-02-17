@@ -1,9 +1,9 @@
 import FWCore.ParameterSet.Config as cms
 
 binInfo = cms.PSet(
-    variables = cms.vstring("eta","pt"),
-    bins = cms.VPSet(
-        # CutBasedId - LooseWP scale factors (80X)
+	variables = cms.vstring("eta","pt"),
+	bins = cms.VPSet(
+		# CutBasedId - LooseWP scale factors (80X)
 	# https://twiki.cern.ch/twiki/bin/view/CMS/EgammaIDRecipesRun2#Electron_efficiencies_and_scale : 80X series - Moriond 2017 recommandation; combined : Reconstruction efficiency. Scale factors for 80X and Electron cut-based 80XID WPs. Scale factors for 80X : Loose cut-based ID WP scale factor | for a total of : 36.3 /fb.
 	#Note : SFs valid only from 10GeV, eta 2.5, bins extended to extremes to prevent any crashes 
 
@@ -263,20 +263,181 @@ binInfo = cms.PSet(
 	cms.PSet( lowBounds = cms.vdouble( 2.4500, 90.0000 ) , upBounds = cms.vdouble( 6.0000, 150.0000 ) , values = cms.vdouble( 0.9250 ) , uncertainties = cms.vdouble( 0.0332 ) ),
 	cms.PSet( lowBounds = cms.vdouble( 2.4500, 150.0000 ) , upBounds = cms.vdouble( 6.0000, 9999999.0000 ) , values = cms.vdouble( 0.9250 ) , uncertainties = cms.vdouble( 0.0333 ) )
 
-        )
-    )	
+		)
+	)	
+
+
+
+emptyBins = cms.PSet(
+	variables = cms.vstring("1"),
+	bins = cms.VPSet()
+	)
+
+
+scalesAndSmearingsPrefix = cms.string("EgammaAnalysis/ElectronTools/data/Winter_2016_reReco_v1_ele")
+
+
+MCSmearHighR9EB_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronSmearStochasticEGMTool"),
+		MethodName = cms.string("FlashggElectrons2D"),
+		Label = cms.string("MCSmearHighR9EB"),
+		FirstParameterName = cms.string("Rho"),
+		SecondParameterName = cms.string("Phi"),
+		CorrectionFile = scalesAndSmearingsPrefix,
+		NSigmas = cms.PSet( firstVar = cms.vint32(1,-1,0,0),
+							secondVar = cms.vint32(0,0,1,-1)),
+		OverallRange = cms.string("full5x5_r9>0.94&&abs(superCluster.eta)<1.5"),
+		BinList = emptyBins,
+		# has to match the labels embedded in the photon object as
+		# defined e.g. in dafne/MicroAOD/python/flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		#           or in flashgg/MicroAOD/python/flashggRandomizedElectronProducer_cff.py (if at MicroAOD prod.)
+		# RandomLabel = cms.string("rnd_g_E"), #for flashggRandomizedElectronProducer_cff.py
+		RandomLabel = cms.string("smearE"),    #for flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		Debug = cms.untracked.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		ApplyCentralValue = cms.bool(True)
+		)
+
+MCSmearLowR9EB_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronSmearStochasticEGMTool"),
+		MethodName = cms.string("FlashggElectrons2D"),
+		Label = cms.string("MCSmearLowR9EB"),
+		FirstParameterName = cms.string("Rho"),
+		SecondParameterName = cms.string("Phi"),
+		CorrectionFile = scalesAndSmearingsPrefix,
+		NSigmas = cms.PSet( firstVar = cms.vint32(1,-1,0,0),
+							secondVar = cms.vint32(0,0,1,-1)),
+		OverallRange = cms.string("full5x5_r9<=0.94&&abs(superCluster.eta)<1.5"),
+		BinList = emptyBins,
+		# has to match the labels embedded in the photon object as
+		# defined e.g. in dafne/MicroAOD/python/flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		#           or in flashgg/MicroAOD/python/flashggRandomizedElectronProducer_cff.py (if at MicroAOD prod.)
+		# RandomLabel = cms.string("rnd_g_E"), #for flashggRandomizedElectronProducer_cff.py
+		RandomLabel = cms.string("smearE"),    #for flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		Debug = cms.untracked.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		ApplyCentralValue = cms.bool(True)
+		)
+
+MCSmearHighR9EE_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronSmearStochasticEGMTool"),  
+		MethodName = cms.string("FlashggElectrons2D"),
+		Label = cms.string("MCSmearHighR9EE"),
+		FirstParameterName = cms.string("Rho"),
+		SecondParameterName = cms.string("Phi"),
+		CorrectionFile = scalesAndSmearingsPrefix,
+		NSigmas = cms.PSet( firstVar = cms.vint32(1,-1,0,0),
+							secondVar = cms.vint32(0,0,1,-1)),
+		OverallRange = cms.string("full5x5_r9>0.94&&abs(superCluster.eta)>=1.5"),
+		BinList = emptyBins,
+		# has to match the labels embedded in the photon object as
+		# defined e.g. in dafne/MicroAOD/python/flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		#           or in flashgg/MicroAOD/python/flashggRandomizedElectronProducer_cff.py (if at MicroAOD prod.)
+		# RandomLabel = cms.string("rnd_g_E"), #for flashggRandomizedElectronProducer_cff.py
+		RandomLabel = cms.string("smearE"),    #for flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		Debug = cms.untracked.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		ApplyCentralValue = cms.bool(True)
+		)
+
+MCSmearLowR9EE_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronSmearStochasticEGMTool"),
+		MethodName = cms.string("FlashggElectrons2D"),
+		Label = cms.string("MCSmearLowR9EE"),
+		FirstParameterName = cms.string("Rho"),
+		SecondParameterName = cms.string("Phi"),
+		CorrectionFile = scalesAndSmearingsPrefix,
+		NSigmas = cms.PSet( firstVar = cms.vint32(1,-1,0,0),
+							secondVar = cms.vint32(0,0,1,-1)),
+		OverallRange = cms.string("full5x5_r9<=0.94&&abs(superCluster.eta)>=1.5"),
+		BinList = emptyBins,
+		# has to match the labels embedded in the photon object as
+		# defined e.g. in dafne/MicroAOD/python/flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		#           or in flashgg/MicroAOD/python/flashggRandomizedElectronProducer_cff.py (if at MicroAOD prod.)
+		# RandomLabel = cms.string("rnd_g_E"), #for flashggRandomizedElectronProducer_cff.py
+		RandomLabel = cms.string("smearE"),    #for flashggRandomizedElectronForDiLeptonDiJetProducer_cff.py
+		Debug = cms.untracked.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		ApplyCentralValue = cms.bool(True)
+		)
+
+
+MCScaleHighR9EB_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronScaleEGMTool"),
+		MethodName = cms.string("FlashggElectrons1D"),
+		Label = cms.string("MCScaleHighR9EB"),
+		NSigmas = cms.vint32(-1,1),
+		OverallRange = cms.string("full5x5_r9>0.94&&abs(superCluster.eta)<1.5"),
+		BinList = emptyBins,
+		CorrectionFile = scalesAndSmearingsPrefix,
+		ApplyCentralValue = cms.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		Debug = cms.untracked.bool(False)
+		)
+
+MCScaleLowR9EB_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronScaleEGMTool"),
+		MethodName = cms.string("FlashggElectrons1D"),
+		Label = cms.string("MCScaleLowR9EB"),
+		NSigmas = cms.vint32(-1,1),
+		OverallRange = cms.string("full5x5_r9<0.94&&abs(superCluster.eta)<1.5"),
+		BinList = emptyBins,
+		CorrectionFile = scalesAndSmearingsPrefix,
+		ApplyCentralValue = cms.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		Debug = cms.untracked.bool(False)
+		)
+
+MCScaleHighR9EE_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronScaleEGMTool"),
+		MethodName = cms.string("FlashggElectrons1D"),
+		Label = cms.string("MCScaleHighR9EE"),
+		NSigmas = cms.vint32(-1,1),
+		OverallRange = cms.string("full5x5_r9>0.94&&abs(superCluster.eta)>=1.5"),
+		BinList = emptyBins,
+		CorrectionFile = scalesAndSmearingsPrefix,
+		ApplyCentralValue = cms.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		Debug = cms.untracked.bool(False)
+		)
+
+MCScaleLowR9EE_EGM = cms.PSet( ElectronMethodName = cms.string("FlashggElectronScaleEGMTool"),
+		MethodName = cms.string("FlashggElectrons1D"),
+		Label = cms.string("MCScaleLowR9EE"),
+		NSigmas = cms.vint32(-1,1),
+		OverallRange = cms.string("full5x5_r9<0.94&&abs(superCluster.eta)>=1.5"),
+		BinList = emptyBins,
+		CorrectionFile = scalesAndSmearingsPrefix,
+		ApplyCentralValue = cms.bool(False),
+		ExaggerateShiftUp = cms.bool(False),
+		Debug = cms.untracked.bool(False)
+		)
+
+
 
 
 flashggElectronSystematics = cms.EDProducer('FlashggElectronEffSystematicProducer',
-                                            src = cms.InputTag("flashggSelectedElectrons"),
-                                            SystMethods2D = cms.VPSet(),
-                                            SystMethods = cms.VPSet(cms.PSet( MethodName = cms.string("FlashggElectronWeight"),
-                                                                              Label = cms.string("ElectronWeight"),
-                                                                              NSigmas = cms.vint32(-1,1),
-                                                                              OverallRange = cms.string("abs(eta)<2.5"),
-                                                                              BinList = binInfo,
-                                                                              Debug = cms.untracked.bool(False),
-                                                                              ApplyCentralValue = cms.bool(True)
-                                                                              )	
-                                                                    )
-                                            )
+											src = cms.InputTag("flashggSelectedElectrons"),
+											SystMethods2D = cms.VPSet(),
+											SystMethods = cms.VPSet(cms.PSet( MethodName = cms.string("FlashggElectronWeight"),
+																			  Label = cms.string("ElectronWeight"),
+																			  NSigmas = cms.vint32(-1,1),
+																			  OverallRange = cms.string("abs(eta)<2.5"),
+																			  BinList = binInfo,
+																			  Debug = cms.untracked.bool(False),
+																			  ApplyCentralValue = cms.bool(True)
+																			  )	
+																	)
+											)
+
+
+
+flashggEleSystematics = cms.EDProducer('FlashggElectronSystematicProducer',
+		src = cms.InputTag("flashggSelectedElectrons"),
+		SystMethods2D = cms.VPSet(
+				MCSmearHighR9EB_EGM,
+				MCSmearLowR9EB_EGM,
+				MCSmearHighR9EE_EGM,
+				MCSmearLowR9EE_EGM		
+		),
+		SystMethods = cms.VPSet(
+				MCScaleHighR9EB_EGM,
+				MCScaleLowR9EB_EGM,
+				MCScaleHighR9EE_EGM,
+				MCScaleLowR9EE_EGM
+		)
+)
+
