@@ -40,7 +40,14 @@ namespace flashgg {
         void setPassLooseId( bool val ) { passLooseId_ = val;}
 
         bool passVetoId( ) const {return passVetoId_ ;}
-        void setPassVetoId( bool val ) { passVetoId_ = val;}
+        void setPassVetoId( bool val ) { passVetoId_ = val;} 
+
+        bool passHeepId() const {return passHeepId_ ;}
+        void setPassHeepId( bool val ) { passHeepId_ = val;}
+
+        unsigned int heepBitMap() const {return heepBitMap_;}
+        void setHeepBitMap( unsigned int val ) {heepBitMap_ = val;}
+
 
         float fggMiniIsoSumRel() const {return fggMiniIsoSumRel_;}
         void setFggMiniIsoSumRel( float val ) {fggMiniIsoSumRel_ = val;}
@@ -61,6 +68,8 @@ namespace flashgg {
         bool passMediumId_;
         bool passLooseId_;
         bool passVetoId_;
+        bool passHeepId_;
+        unsigned int heepBitMap_;
         float fggMiniIsoSumRel_;
     };
 }
