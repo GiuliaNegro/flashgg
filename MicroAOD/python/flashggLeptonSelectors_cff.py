@@ -1,7 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 flashggSelectedElectrons = cms.EDFilter("FLASHggElectronSelector",
-    src = cms.InputTag("flashggElectrons"),
+    src = cms.InputTag("flashggRandomizedElectrons"),
     cut = cms.string("pt > 9.")
 )
 

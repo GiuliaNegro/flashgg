@@ -25,6 +25,12 @@ process.RandomNumberGeneratorService.flashggRandomizedPhotons = cms.PSet(
           initialSeed = cms.untracked.uint32(16253245)
         )
 
+process.RandomNumberGeneratorService.flashggRandomizedElectrons = cms.PSet(
+          initialSeed = cms.untracked.uint32(16253245)
+        # engineName = cms.untracked.string('TRandom3') # optional, default to HepJamesRandom if absent
+        )
+
+
 #Moriond17 MC
 process.source = cms.Source("PoolSource",fileNames=cms.untracked.vstring("/store/mc/RunIISummer16MiniAODv2/GluGluHToGG_M-125_13TeV_powheg_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/60000/024E4FA3-8BBC-E611-8E3D-00266CFFBE88.root"))
 
