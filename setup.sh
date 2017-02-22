@@ -141,7 +141,13 @@ cp $CMSSW_BASE/src/flashgg/Systematics/data/Winter_2016_reReco_v1_ele_smearings.
  cp $CMSSW_BASE/src/flashgg/Systematics/data/Moriond17_74x_pho_scales.dat $CMSSW_BASE/src/EgammaAnalysis/ElectronTools/data
  cp $CMSSW_BASE/src/flashgg/Systematics/data/Moriond17_74x_pho_smearings.dat $CMSSW_BASE/src/EgammaAnalysis/ElectronTools/data
 
+echo "bringing in E/gamma IDs into VID"
+git cms-merge-topic ikrav:egm_id_80X_v3
 
+echo "bringing in HEEP V70 into VID"
+git cms-merge-topic Sam-Harper:HEEPV70VID_8010_ReducedCheckout
+mkdir -p ../external/slc6_amd64_gcc530/data/RecoEgamma/ElectronIdentification/
+git clone git@github.com:cms-data/RecoEgamma-ElectronIdentification ../external/slc6_amd64_gcc530/data/RecoEgamma/ElectronIdentification/data 
 
 echo "adding hook for indentation"
 ln -s $CMSSW_BASE/src/flashgg/Validation/scripts/flashgg_indent_check.sh $CMSSW_BASE/src/flashgg/.git/hooks/pre-commit
