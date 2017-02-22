@@ -269,8 +269,8 @@ class MicroAODCustomize(object):
         dataFormat = DataFormat.MiniAOD
         switchOnVIDElectronIdProducer(process, DataFormat.MiniAOD)
         my_id_modules = ['RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Spring16_GeneralPurpose_V1_cff',
-                         'RecoEgamma.ElectronIdentification.Identification.cutBasedElectronID_Summer16_80X_V1_cff',
-                         'RecoEgamma.ElectronIdentification.Identification.heepElectronID_HEEPV70_cff']
+                         'RecoEgamma.ElectronIdentification.Identification.cutBasedElectronID_Summer16_80X_V1_cff']#,
+                         # 'RecoEgamma.ElectronIdentification.Identification.heepElectronID_HEEPV70_cff']
         for idmod in my_id_modules:
             setupAllVIDIdsInModule(process,idmod,setupVIDElectronSelection)
         process.flashggElectrons.effAreasConfigFile = cms.FileInPath("RecoEgamma/ElectronIdentification/data/Summer16/effAreaElectrons_cone03_pfNeuHadronsAndPhotons_80X.txt")
@@ -281,8 +281,8 @@ class MicroAODCustomize(object):
         process.flashggElectrons.eleMVAMediumIdMap = cms.InputTag("egmGsfElectronIDs:mvaEleID-Spring16-GeneralPurpose-V1-wp90")
         process.flashggElectrons.eleMVATightIdMap = cms.InputTag("egmGsfElectronIDs:mvaEleID-Spring16-GeneralPurpose-V1-wp80")
         process.flashggElectrons.mvaValuesMap = cms.InputTag("electronMVAValueMapProducer:ElectronMVAEstimatorRun2Spring16GeneralPurposeV1Values")
-        process.flashggElectrons.eleHEEPIdMap = cms.InputTag("egmGsfElectronIDs:heepElectronID-HEEPV70")
-        process.flashggElectrons.heepValuesMap = cms.InputTag("egmGsfElectronIDs:heepElectronID-HEEPV70Bitmap")
+        # process.flashggElectrons.eleHEEPIdMap = cms.InputTag("egmGsfElectronIDs:heepElectronID-HEEPV70")
+        # process.flashggElectrons.heepValuesMap = cms.InputTag("egmGsfElectronIDs:heepElectronID-HEEPV70Bitmap")
 
     def customizeSummer16EGMPhoID(self,process):
         from PhysicsTools.SelectorUtils.tools.vid_id_tools import DataFormat,switchOnVIDPhotonIdProducer,setupAllVIDIdsInModule,setupVIDPhotonSelection

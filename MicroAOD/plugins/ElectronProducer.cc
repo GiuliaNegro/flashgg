@@ -144,14 +144,14 @@ namespace flashgg {
 		edm::Handle<edm::ValueMap<bool> > medium_wp;
 		edm::Handle<edm::ValueMap<bool> > tight_wp; 
 		edm::Handle<edm::ValueMap<bool> > veto_wp;
-		edm::Handle<edm::ValueMap<bool> > heep_wp;
 		evt.getByToken(eleLooseIdMapToken_,loose_wp);
 		evt.getByToken(eleMediumIdMapToken_,medium_wp);
 		evt.getByToken(eleTightIdMapToken_,tight_wp);
 		evt.getByToken(eleVetoIdMapToken_,veto_wp);
-		evt.getByToken(eleHEEPIdMapToken_,heep_wp);
 
-		edm::Handle<edm::ValueMap<unsigned int> > heepValues;
+		edm::Handle<edm::ValueMap<bool> > heep_wp; 
+		edm::Handle<edm::ValueMap<unsigned int> > heepValues; 
+		evt.getByToken(eleHEEPIdMapToken_,heep_wp);
 		evt.getByToken(heepValuesMapToken_,heepValues);     
 
 		Handle<View<pat::PackedCandidate> > pfcandidates;
@@ -188,7 +188,6 @@ namespace flashgg {
 			bool passMediumId = (*medium_wp)[pelec];
 			bool passTightId = (*tight_wp)[pelec];
 			bool passVetoId = (*veto_wp)[pelec];
-			bool passHeepId = (*heep_wp)[pelec];
 		  
 			felec.setPassMVATightId(passMVATightId);
 			felec.setPassMVAMediumId(passMVAMediumId);
@@ -196,9 +195,13 @@ namespace flashgg {
 			felec.setPassMediumId(passMediumId);
 			felec.setPassLooseId(passLooseId);
 			felec.setPassVetoId(passVetoId);
+
+			bool passHeepId = false;
+			if (!heep_wp.failedToGet()) passHeepId = (*heep_wp)[pelec];	
 			felec.setPassHeepId(passHeepId);
 
-			unsigned int heepBitMap = (*heepValues)[pelec];
+			unsigned int heepBitMap = 0;
+			if (!heepValues.failedToGet()) heepBitMap = (*heepValues)[pelec];
 			felec.setHeepBitMap( heepBitMap );
 
 			//MiniIsolation : https://twiki.cern.ch/twiki/bin/view/CMS/MiniIsolationSUSY
