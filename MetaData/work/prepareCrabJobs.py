@@ -322,6 +322,8 @@ if options.createCrabConfig:
         if len(jobname) > 97:
             jobname = jobname.replace("TrancheIV","T4")
         if len(jobname) > 97:
+            jobname = jobname.replace("inclusiveDecays_","")
+        if len(jobname) > 97:
             print orig_jobname
             print "-->", len(jobname), jobname
             raise Exception,"jobname remains too long, additional hacks needed in prepareCrabJobs.py"
