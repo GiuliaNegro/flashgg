@@ -88,6 +88,7 @@
     "RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1"                           : ["80X_mcRun2_asymptotic_2016_TrancheIV_v8"],
     "RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2"                           : ["80X_mcRun2_asymptotic_2016_TrancheIV_v8"],
     "RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext3"                           : ["80X_mcRun2_asymptotic_2016_TrancheIV_v8"],
+    "RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext5"                        : ["80X_mcRun2_asymptotic_2016_TrancheIV_v8"],
     "RunIISummer16MiniAODv2-PUMoriond17_HCALDebug_80X_mcRun2_asymptotic_2016_TrancheIV_v6"                      : ["80X_mcRun2_asymptotic_2016_TrancheIV_v7"],
     "RunIISummer16MiniAODv2-PUMoriond17_plus5percentMaterial_80X_mcRun2_asymptotic_2016_TrancheIV_v6"           : ["80X_mcRun2_asymptotic_2016_TrancheIV_v7"],
     "RunIISummer16MiniAODv2-PUMoriond17_minus5percentMaterial_80X_mcRun2_asymptotic_2016_TrancheIV_v6"          : ["80X_mcRun2_asymptotic_2016_TrancheIV_v7"],
