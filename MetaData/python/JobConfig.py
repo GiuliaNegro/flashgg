@@ -107,7 +107,11 @@ class JobConfig(object):
                                VarParsing.VarParsing.multiplicity.singleton, # singleton or list
                                VarParsing.VarParsing.varType.string,          # string, int, or float
                                "puTarget")
-
+        self.options.register ('trigger',
+                               "",
+                               VarParsing.VarParsing.multiplicity.singleton,
+                               VarParsing.VarParsing.varType.string,
+                               "trigger to be used to filter datasets")
         
         self.parsed = False
         
