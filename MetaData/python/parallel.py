@@ -368,9 +368,13 @@ class WorkNodeJob(object):
         # this can be used, for example, to propagate $retval by touching a file
         script += self.runner.epilogue(self.stage_cmd,self.stage_dest)+"\n"
 
+        script += '\n'
+        script += 'voms-proxy-info\n'  
+        script += '\n'
+
         script += 'exit $retval\n'
         script += '\n'
-        
+            
         return self.runner.run(script)
 
 
