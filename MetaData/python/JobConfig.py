@@ -112,7 +112,12 @@ class JobConfig(object):
                                VarParsing.VarParsing.multiplicity.singleton,
                                VarParsing.VarParsing.varType.string,
                                "trigger to be used to filter datasets")
-        
+        self.options.register ('isDoubleEGinSignalRegion',
+                               False,
+                               VarParsing.VarParsing.multiplicity.singleton,
+                               VarParsing.VarParsing.varType.bool,
+                               "isDoubleEGinSignalRegion")        
+
         self.parsed = False
         
         
