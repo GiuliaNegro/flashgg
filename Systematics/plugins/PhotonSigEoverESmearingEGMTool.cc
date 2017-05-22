@@ -55,9 +55,9 @@ namespace flashgg {
     
     void PhotonSigEoverESmearingEGMTool::applyCorrection( flashgg::Photon &y, int syst_shift )
     {
-        unsigned int gain=12;
-        if(y.hasSwitchToGain1()) gain=1;
-        if(y.hasSwitchToGain6()) gain=6;
+        // unsigned int gain=12;
+        // if(y.hasSwitchToGain1()) gain=1;
+        // if(y.hasSwitchToGain6()) gain=6;
 
         if( overall_range_( y ) ) {
             // Nothing will happen, with no warning, if the bin count doesn't match expected options
@@ -65,7 +65,8 @@ namespace flashgg {
             
             // the combination of central value + NSigma * sigma is already
             // computed by getSmearingSigma(...)
-            auto sigma = scaler_.getSmearingSigma(run_number_, y.isEB(), y.full5x5_r9(), y.superCluster()->eta(), y.et(), gain, 0., 0.); // never apply systematic shift
+            // auto sigma = scaler_.getSmearingSigma(run_number_, y.isEB(), y.full5x5_r9(), y.superCluster()->eta(), y.et(), gain, 0., 0.); // never apply systematic shift
+            auto sigma = scaler_.getSmearingSigma(run_number_, y.isEB(), y.full5x5_r9(), y.superCluster()->eta(), y.et(), 0., 0.); // never apply systematic shift
 
             if( debug_ ) { 
                 std::cout << "  " << shiftLabel( syst_shift ) << ": Photon has pt= " << y.pt() << " eta=" << y.superCluster()->eta() << " full5x5_r9=" << y.full5x5_r9()
